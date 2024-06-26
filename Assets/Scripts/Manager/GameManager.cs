@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Action OnGameStart;
 
+    public Action OnGameStartInit;
+
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        InitManager.Instance.Init();
         EnemyManager.Instance.Init();
         PlayerPrefs.SetInt("UnitySelectMonitor", 0);
         Score = 0;
@@ -47,6 +50,9 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         MusicManager.Instance.PlaySound("Music/clickButton");
+        if(OnGameStartInit != null)
+            OnGameStartInit();
+
         EnemyManager.Instance.Init();
         Score = 0;
         PlatformManager.Instance.OnGameStart();

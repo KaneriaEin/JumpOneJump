@@ -1,0 +1,39 @@
+{
+  "1": {
+    "ID": 1,
+    "Name": "HelloNpc",
+    "Description": "任务NPC",
+    "Type": "Task"
+  },
+  "2": {
+    "ID": 2,
+    "Name": "ItemShopNpc",
+    "Description": "杂货商人",
+    "Type": "Functional",
+    "Function": "InvokeShop",
+    "Param": 1
+  },
+  "3": {
+    "ID": 3,
+    "Name": "InstanceNpc",
+    "Description": "副本NPC",
+    "Type": "Functional",
+    "Function": "InvokeStory"
+  },
+  "4": {
+    "ID": 4,
+    "Name": "武器店",
+    "Description": "装备NPC",
+    "Type": "Functional",
+    "Function": "InvokeShop",
+    "Param": 2
+  },
+  "5": {
+    "ID": 5,
+    "Name": "技能店",
+    "Description": "坐骑NPC",
+    "Type": "Functional",
+    "Function": "InvokeShop",
+    "Param": 3
+  }
+}
