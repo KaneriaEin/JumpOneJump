@@ -1,0 +1,13 @@
+##class Item
+单个物品的类，成员有id，count，define，equipinfo，只有一个构造函数 Item(int id, int count);
+
+##class ItemDefine
+记录所有道具种类，编号，功能，类别，限制职业，价格，图标，参数；
+
+--[[Player里增加ItemManager，管理角色拥有的道具，通过ItemList加载角色初始持有道具]]
+
+##class ItemManager
+client端，管理主角所拥有的所有item；
+server端，每个character有一个ItemManager，对应玩家自己的道具；初始化时通过结构体获取值{id, characterId, ItemId, ItemCount, owner}
+用一个字典管理所拥有item，dictionary<itemid, itemcount>
+初始化时把角色所拥有道具全部获取完毕，存在ItemManager里的dictionary<Id , Item>;

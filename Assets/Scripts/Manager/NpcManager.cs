@@ -47,10 +47,12 @@ public class NpcManager : Singleton<NpcManager>
     {
         if(npc.Type == NpcType.Task)
         {
+            //ItemManager.Instance.ShowAll();
             //return DoTaskInteractive(npc);
         }
         else if(npc.Type == NpcType.Functional)
         {
+            //ItemManager.Instance.ShowAll();
             //return DoFunctionInteractive(npc);
         }
         return true;

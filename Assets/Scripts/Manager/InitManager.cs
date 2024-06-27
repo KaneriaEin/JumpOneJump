@@ -7,5 +7,6 @@ public class InitManager : Singleton<InitManager>
     public void Init()
     {
         DataManager.Instance.Load();
+        ItemManager.Instance.Init();
     }
 }

@@ -10,6 +10,7 @@ public class DataManager : Singleton<DataManager>
 {
     public string DataPath;
     public Dictionary<int, NpcDefine> Npcs = null;
+    public Dictionary<int, ItemDefine> Items = null;
 
     public DataManager()
     {
@@ -21,12 +22,18 @@ public class DataManager : Singleton<DataManager>
     {
         string json = File.ReadAllText(this.DataPath + "NpcDefine.txt");
         this.Npcs = JsonConvert.DeserializeObject<Dictionary<int, NpcDefine>>(json);
+
+        json = File.ReadAllText(this.DataPath + "ItemDefine.txt");
+        this.Items = JsonConvert.DeserializeObject<Dictionary<int, ItemDefine>>(json);
     }
 
     public IEnumerator LoadData()
     {
         string json = File.ReadAllText(this.DataPath + "NpcDefine.txt");
         this.Npcs = JsonConvert.DeserializeObject<Dictionary<int, NpcDefine>>(json);
+
+        json = File.ReadAllText(this.DataPath + "ItemDefine.txt");
+        this.Items = JsonConvert.DeserializeObject<Dictionary<int, ItemDefine>>(json);
 
         yield return null;
     }
