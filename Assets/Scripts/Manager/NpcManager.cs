@@ -47,14 +47,28 @@ public class NpcManager : Singleton<NpcManager>
     {
         if(npc.Type == NpcType.Task)
         {
-            //ItemManager.Instance.ShowAll();
+            ItemManager.Instance.ShowAll();
             //return DoTaskInteractive(npc);
         }
         else if(npc.Type == NpcType.Functional)
         {
             //ItemManager.Instance.ShowAll();
-            //return DoFunctionInteractive(npc);
+            Debug.LogFormat("”Înpc{0}∂‘ª∞", npc.Name);
+            return DoFunctionInteractive(npc);
         }
         return true;
+    }
+
+    public bool DoFunctionInteractive(NpcDefine npc)
+    {
+        if(npc.Type != NpcType.Functional)
+        {
+            return false;
+        }
+        if (eventMap.ContainsKey(npc.Function))
+        {
+            return eventMap[npc.Function](npc);
+        }
+        return false;
     }
 }

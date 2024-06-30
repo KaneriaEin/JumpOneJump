@@ -70,13 +70,13 @@ public class GameManager : MonoBehaviour
 
     public void OnGamePause()
     {
-        Player.Instance.GetComponent<WeaponController>().enabled = false;
+        //Player.Instance.GetComponent<WeaponController>().enabled = false;
         UIManager.Instance.OnGamePause();
     }
 
     public void OnGameResume()
     {
-        Player.Instance.GetComponent<WeaponController>().enabled = enabled;
+        //Player.Instance.GetComponent<WeaponController>().enabled = enabled;
         UIManager.Instance.OnGameResume();
     }
 }

@@ -1,0 +1,9 @@
+##NpcDefine
+记录npc的名称，位置，功能(商店，任务，副本)；
+
+##NpcController
+每个npc直接固定在场景，挂载此脚本，由npcId区分，管理npc动作，选中高光，鼠标点击时触发对应事件，传参npcId调用NpcManager
+触发事件时，启用虚拟摄像机运镜，禁用玩家控制脚本；
+
+##NpcManager
+client  记录npc的位置(暂时没用) ， 记录不同npc对应调用函数Dictionary<npcfunctional, handler>，【商店类型，显示商店】【任务类型，显示任务】，由其他模块注册接口；

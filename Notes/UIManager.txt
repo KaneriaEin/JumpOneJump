@@ -1,0 +1,21 @@
+mmo里为UIManager，跳一跳里为MMOUIManager，原UIManager负责显示分数，技能特效(用UIelement管理可能更好)
+
+管理界面UI的显示；其余模块需要显示UI时，直接调用本接口；
+<T> uiT = UIManager.Instance.Show<T>();
+
+类内部再新建个类，UIElement { string Resources, bool Cache, GameObject Instance}
+
+一个字典<type, uielement>
+每次打开一个ui时赋值对应的UIElement.Instance，关闭时判断Cache决定destroy或setActive(False)
+打开失败时返回 default(T)
+
+##UIWindow
+抽象类；
+所有ui界面的基类，解耦了窗口的基本操作，”关闭“，”yes“”no“等；
+
+##TabView, TabButton
+两个脚本管理分页；
+TabView管理---{ n个tabbutton, n个page } 
+
+##Show方法
+show方法时，调用InputManager使得duringUI计数器加一，用于控制玩家输入系统；

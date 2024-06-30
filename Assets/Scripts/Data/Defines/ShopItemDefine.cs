@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopItemDefine : MonoBehaviour
+public class ShopItemDefine
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int ItemID { get; set; }
+    public int Count { get; set; }
+    public int Price { get; set; }
+    public int Status { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

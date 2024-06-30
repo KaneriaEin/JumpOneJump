@@ -1,9 +1,12 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class NpcController : MonoBehaviour
 {
+    public CinemachineVirtualCamera virtualCamera;
+
     public int npcId;
 
     Animator anim;
@@ -56,17 +59,17 @@ public class NpcController : MonoBehaviour
         this.anim.SetTrigger("Relax");
     }
 
-    private void OnMouseDown()
-    {
-        if(Vector3.Distance(this.transform.position, Player.Instance.transform.position) < 2)
-        {
-            Interactive();
-        }
-        else
-        {
-            //导航，mmorpg需要，此tps不需要
-        }
-    }
+    //private void OnMouseDown()
+    //{
+    //    if(Vector3.Distance(this.transform.position, Player.Instance.transform.position) < 2)
+    //    {
+    //        //Interactive();
+    //    }
+    //    else
+    //    {
+    //        //导航，mmorpg需要，此tps不需要
+    //    }
+    //}
 
     void Interactive()
     {
@@ -80,12 +83,22 @@ public class NpcController : MonoBehaviour
     IEnumerator DoInteractive()
     {
         yield return FaceToPlayer();
+
+        //虚拟摄像机开启，怼脸
+        virtualCamera.gameObject.SetActive(true);
+        InputManager.Instance.current_virtual_camera = virtualCamera;
+
         if (NpcManager.Instance.Interactive(this.npcId))
         {
             anim.SetTrigger("Talk");
         }
         yield return new WaitForSeconds(3f);
         inInteractive = false;
+    }
+
+    public void DoInteractiveOver()
+    {
+        virtualCamera.enabled = false;
     }
 
     IEnumerator FaceToPlayer()

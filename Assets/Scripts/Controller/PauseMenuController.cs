@@ -42,16 +42,14 @@ public class PauseMenuController : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        InputManager.Instance.InClickEvent();
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        InputManager.Instance.InGamingBattleMode();
         GameManager.Instance.OnGameResume();
         Time.timeScale = 1f;
     }

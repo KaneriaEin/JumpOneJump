@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 317602824241706317}
   - component: {fileID: 2678252456430538186}
   - component: {fileID: 1684325645420042658}
-  - component: {fileID: 8341451885232563750}
+  - component: {fileID: 3359703475355369082}
   m_Layer: 0
   m_Name: BigSqure
   m_TagString: Platform
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3255826078276312685}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 0.5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369551bd9986c7f4a80f284595c33380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &8341451885232563750
+--- !u!54 &3359703475355369082
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

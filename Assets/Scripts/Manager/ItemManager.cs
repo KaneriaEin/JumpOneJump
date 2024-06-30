@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEditor.TextCore.Text;
 
 public class ItemManager : Singleton<ItemManager>
 {
@@ -24,10 +25,34 @@ public class ItemManager : Singleton<ItemManager>
 
     public void ShowAll()
     {
+        string str = null;
         foreach(var item in Items)
         {
-            Debug.Log(item.ToString());
+            str += item.ToString() + "\n";
         }
-        Debug.Log("ItemManager.ShowAll Finish!");
+        Debug.Log(str + "ItemManager.ShowAll Finish!");
+    }
+
+    public bool AddItem(int itemID, int count)
+    {
+        ItemDefine itemDefine = DataManager.Instance.Items[itemID];
+        if (this.Items.ContainsKey(itemID))
+        {
+            if (this.Items[itemID].Count + count > itemDefine.StackLimit)
+            {
+                Debug.LogFormat("AddItem failed, over stackLimit£¡");
+                return false;
+            }
+            else
+            {
+                this.Items[itemID].Count += count;
+            }
+        }
+        else
+        {
+            Item item = new Item(itemID, count);
+            this.Items[itemID] = item;
+        }
+        return true;
     }
 }

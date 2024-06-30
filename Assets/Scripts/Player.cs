@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
 
     public AudioSource musicFire;
 
+    public AnimationAndMovementController moveController;
+    public WeaponController weaponController;
+
     private int hp = 1000;
     public int HP
     {
@@ -33,6 +36,13 @@ public class Player : MonoBehaviour
             hp = value;
             HpSlider.value = hp;
         }
+    }
+
+    private int gold = 10000;
+    public int Gold
+    {
+        get { return gold; }
+        set { gold = value; }
     }
 
     public float buff_FourDamage = 0;
@@ -232,4 +242,11 @@ public class Player : MonoBehaviour
         }
         return;
     }
+
+    public void StopMove(bool on)
+    {
+        this.moveController.enabled = !on;
+        this.weaponController.enabled = !on;
+    }
+
 }

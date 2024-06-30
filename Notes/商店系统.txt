@@ -1,0 +1,25 @@
+##ShopDefine
+记录所有商店，只需名称和描述, <int, ShopDefine>
+
+##ShopItemDefine
+记录商店所售商品，记录ItemId, 价格Price，数量Count，<ShopId, <ShopItemId, ShopItemDefine>>
+
+##ShopManager
+client 无需管理所有商店，只提供ShowShop方法显示UI界面，通过ItemService发送购买物品请求(shopid, itemid)
+    由点击npc互动时，NpcManager负责调用每个npc对应功能函数，由此打开商店或任务或副本，传参为npc.Param；
+   ShowShop方法，调用UIManager，显示shopui，UIShop = UIManager.Instance.ShowUI<UIShop>;
+
+
+##UIShop
+主要成员：Shopdefine, GameObject 商品；
+有SetShop（传参为define），（其他类似UI也有类似SetXXX方法，旨在实例化时初始化成对应的功能）
+初始化时根据自己的define，从DataManager里查找自己应该有的ShopItem，一个个实例化
+商店界面绑定的UI，显示商店道具列表，购买按钮绑定函数；
+
+
+##UIShopItem : ISelectHandler
+
+成员包括 图标，价格，名称，限制职业，数量，image背景图，选中和非选中时的精灵；
+同理有SetShopItem()，传图片，名称文本，限制职业
+继承接口ISelectHandler，用于实现选择的逻辑；
+
