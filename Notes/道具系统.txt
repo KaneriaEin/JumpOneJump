@@ -7,7 +7,7 @@
 --[[Player里增加ItemManager，管理角色拥有的道具，通过ItemList加载角色初始持有道具]]
 
 ##class ItemManager
-client端，管理主角所拥有的所有item；
+client端，管理主角所拥有的所有item，字典里记录的是所有道具和角色所拥有的数量。哪怕角色没有的道具，字典里也存储。；
 server端，每个character有一个ItemManager，对应玩家自己的道具；初始化时通过结构体获取值{id, characterId, ItemId, ItemCount, owner}
 用一个字典管理所拥有item，dictionary<itemid, itemcount>
 初始化时把角色所拥有道具全部获取完毕，存在ItemManager里的dictionary<Id , Item>;

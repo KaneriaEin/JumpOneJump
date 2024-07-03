@@ -19,6 +19,7 @@ public class MMOUIManager : Singleton<MMOUIManager>
     {
         //this.UIResources.Add (typeof (UIElement), new UIElement ());
         this.UIResources.Add (typeof (UIShop), new UIElement () { Resources = "UI/UIShop", Cache = false });
+        this.UIResources.Add (typeof (UIBag), new UIElement () { Resources = "UI/UIBag", Cache = false });
     }
 
     public T Show<T>()

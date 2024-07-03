@@ -59,6 +59,7 @@ public class UIShop : UIWindow
     {
         base.OnCloseClick();
         InputManager.Instance.duringUI--;
+        Player.Instance.gameObject.SetActive(true);
         InputManager.Instance.InGamingBattleMode();
     }
 

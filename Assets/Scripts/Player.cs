@@ -1,6 +1,8 @@
+using Cinemachine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public enum BuffType
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour
     public WeaponController weaponController;
 
     private int hp = 1000;
+
+    public CinemachineFreeLook freeCam;
+
     public int HP
     {
         get { return hp; }
@@ -247,6 +252,7 @@ public class Player : MonoBehaviour
     {
         this.moveController.enabled = !on;
         this.weaponController.enabled = !on;
+        this.freeCam.enabled = !on;
     }
 
 }

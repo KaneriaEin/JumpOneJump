@@ -23,26 +23,26 @@ public class Buff
             case BuffType.DoubleHigher:
                 this.BuffName = "DoubleHigher";
                 this.IconResource = "UI/BuffIcon/UI_Buff_Icon_HighJump";
-                this.restTime = 10;
-                this.totalTime = 10;
+                this.restTime = 20;
+                this.totalTime = 20;
                 break;
             case BuffType.ForthDamage:
                 this.BuffName = "ForthDamage";
                 this.IconResource = "UI/BuffIcon/UI_Buff_Icon_FourDamage";
-                this.restTime = 6;
-                this.totalTime = 6;
+                this.restTime = 15;
+                this.totalTime = 15;
                 break;
             case BuffType.BloodDrinking:
                 this.BuffName = "BloodDrinking";
                 this.IconResource = "UI/BuffIcon/UI_Buff_Icon_BloodDrink";
-                this.restTime = 10;
-                this.totalTime = 10;
+                this.restTime = 20;
+                this.totalTime = 20;
                 break;
             case BuffType.BigSquare:
                 this.BuffName = "BigSquare";
                 this.IconResource = "UI/BuffIcon/UI_Buff_Icon_BigSquare";
-                this.restTime = 5;
-                this.totalTime = 5;
+                this.restTime = 10;
+                this.totalTime = 10;
                 break;
             default:
                 break;

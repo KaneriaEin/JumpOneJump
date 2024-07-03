@@ -48,6 +48,7 @@ public class ShopManager : Singleton<ShopManager>
         ShopDefine shopDefine;
         if(DataManager.Instance.Shops.TryGetValue(shopid, out shopDefine))
         {
+            Player.Instance.gameObject.SetActive(false); //这里最好是取消渲染，而不是禁用整个GO
             UIShop ui = MMOUIManager.Instance.Show<UIShop>();
             if(ui != null)
             {

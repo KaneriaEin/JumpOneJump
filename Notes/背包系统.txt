@@ -1,0 +1,24 @@
+//靠点击一个按钮，直接调用UIManager.Show<UIBag>
+//每个格子信息BagItem存储在BagManager里，UIBag调用Init()，获取所有BagItem信息，然后放在每个槽位里显示出来；
+
+##UIBag
+UI界面，运用TabButton,TabView结构，实现多个背包界面切换；
+对应背包ui界面，与商店同样，记录Content位置(运用了Grid LayOut Group)，为了把BagItem显示在对应格子上；
+打开背包时 Start 先获取所有槽位 Image, 然后调用协程InitBag，把每个道具用UIBagItem显示出来；
+本质就是从 BagManager 里获取每个格子的信息，拉过来自己显示；
+“整理”按钮，三步。把每个Image下的子物体删掉；在BagManager里重新整理BagItem（遍历ItemManager的字典）；最后重新显示，调用协程InitBag；
+
+##UIIconItem
+类似商店系统，只含有道具图片，道具名称，和 Set方法；为背包配置道具时提供接口；
+
+##BagManager
+包括 解锁背包格子数量，背包道具(与ItemManager里的不同，背包道具限制每个道具的最大数量，比如99个药瓶，对应两个背包道具，一个*50，一个*49)
+Init()
+跳一跳单机版：遍历ItemManager，把角色所含物品读进背包管理器里，变为BagItem；
+MMo原版：从网络中获取，NBagInfo，服务端已经把角色背包道具都整理好，角色登录直接获取这个NBagInfo，然后根据这个NBagInfo读进数据，到BagItem[]中；
+AddItem(itemId, count)
+不难，判断相同itemid的槽，判断是否足够放下，不足够的话再找一个空的槽(itemid == 0)放进去；
+
+##Model.BagItem
+结构体，记录 ItemID 和 Count，为了设计一个物体单个格子的最大持有上限(补药*20，补药*20，补药*20)
+重写了几个运算符 public static bool operator !=, ==

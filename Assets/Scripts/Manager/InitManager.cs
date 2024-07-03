@@ -10,6 +10,7 @@ public class InitManager : Singleton<InitManager>
         DataManager.Instance.Load();
         InputManager.Instance.Init();
         ItemManager.Instance.Init();
+        BagManager.Instance.Init();
         ShopManager.Instance.Init();
     }
 }

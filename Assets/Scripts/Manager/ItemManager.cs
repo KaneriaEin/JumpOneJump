@@ -38,21 +38,24 @@ public class ItemManager : Singleton<ItemManager>
         ItemDefine itemDefine = DataManager.Instance.Items[itemID];
         if (this.Items.ContainsKey(itemID))
         {
-            if (this.Items[itemID].Count + count > itemDefine.StackLimit)
-            {
-                Debug.LogFormat("AddItem failed, over stackLimit！");
-                return false;
-            }
-            else
-            {
-                this.Items[itemID].Count += count;
-            }
+            //此处stackLimit的意义是背包单格子的限制数量，而此物品的全局最大持有数，比如剧情道具之类，暂时不做此限制，无脑+=count；
+            //if (this.Items[itemID].Count + count > itemDefine.StackLimit)
+            //{
+            //    Debug.LogFormat("AddItem failed, over stackLimit！");
+            //    return false;
+            //}
+            //else
+            //{
+            //    this.Items[itemID].Count += count;
+            //}
+            this.Items[itemID].Count += count;
         }
         else
         {
             Item item = new Item(itemID, count);
             this.Items[itemID] = item;
         }
+        BagManager.Instance.AddItem(itemID, count);
         return true;
     }
 }
