@@ -20,12 +20,12 @@ public class MMOUIManager : Singleton<MMOUIManager>
         //this.UIResources.Add (typeof (UIElement), new UIElement ());
         this.UIResources.Add (typeof (UIShop), new UIElement () { Resources = "UI/UIShop", Cache = false });
         this.UIResources.Add (typeof (UIBag), new UIElement () { Resources = "UI/UIBag", Cache = false });
+        this.UIResources.Add (typeof (UICharEquip), new UIElement () { Resources = "UI/UICharEquip", Cache = false });
     }
 
     public T Show<T>()
     {
         InputManager.Instance.InClickEvent();
-        InputManager.Instance.duringUI++;
 
         Type type = typeof (T);
         if(this.UIResources.ContainsKey (type))
@@ -34,6 +34,10 @@ public class MMOUIManager : Singleton<MMOUIManager>
             if(info.Instance != null)
             {
                 info.Instance.SetActive (true);
+                if(info.Cache != false)
+                {
+                    InputManager.Instance.duringUI++;
+                }
             }
             else
             {
@@ -43,6 +47,7 @@ public class MMOUIManager : Singleton<MMOUIManager>
                     return default (T);
                 }
                 info.Instance = (GameObject)GameObject.Instantiate (prefab);
+                InputManager.Instance.duringUI++;
             }
             return info.Instance.GetComponent<T>();
         }

@@ -12,5 +12,6 @@ public class InitManager : Singleton<InitManager>
         ItemManager.Instance.Init();
         BagManager.Instance.Init();
         ShopManager.Instance.Init();
+        EquipManager.Instance.Init();
     }
 }

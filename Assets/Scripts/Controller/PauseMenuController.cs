@@ -28,6 +28,11 @@ public class PauseMenuController : MonoBehaviour
             MMOUIManager.Instance.Show<UIBag>();
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            MMOUIManager.Instance.Show<UICharEquip>();
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)

@@ -13,7 +13,7 @@ public class BagManager : Singleton<BagManager>
 
     public void Init()
     {
-        this.Unlocked = 53;
+        this.Unlocked = 60;
         this.bagItems = new BagItem[Unlocked];
         int bgitemid = 0;
         //for (int i = 0; i < ItemManager.Instance.Items.Count; i++)

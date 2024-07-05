@@ -12,6 +12,8 @@ public class DataManager : Singleton<DataManager>
     public Dictionary<int, NpcDefine> Npcs = null;
     public Dictionary<int, ItemDefine> Items = null;
     public Dictionary<int, ShopDefine> Shops = null;
+    public Dictionary<int, EquipDefine> Equips = null;
+    public Dictionary<int, EquipList> EquipLists = null;
     public Dictionary<int, Dictionary<int, ShopItemDefine>> ShopItems;
 
     public DataManager()
@@ -33,6 +35,12 @@ public class DataManager : Singleton<DataManager>
 
         json = File.ReadAllText(this.DataPath + "ShopItemDefine.txt");
         this.ShopItems = JsonConvert.DeserializeObject<Dictionary<int, Dictionary<int, ShopItemDefine>>>(json);
+
+        json = File.ReadAllText(this.DataPath + "EquipDefine.txt");
+        this.Equips = JsonConvert.DeserializeObject<Dictionary<int, EquipDefine>>(json);
+
+        json = File.ReadAllText(this.DataPath + "EquipList.txt");
+        this.EquipLists = JsonConvert.DeserializeObject<Dictionary<int, EquipList>>(json);
     }
 
     public IEnumerator LoadData()
@@ -48,6 +56,12 @@ public class DataManager : Singleton<DataManager>
 
         json = File.ReadAllText(this.DataPath + "ShopItemDefine.txt");
         this.ShopItems = JsonConvert.DeserializeObject<Dictionary<int, Dictionary<int, ShopItemDefine>>>(json);
+
+        json = File.ReadAllText(this.DataPath + "EquipDefine.txt");
+        this.Equips = JsonConvert.DeserializeObject<Dictionary<int, EquipDefine>>(json);
+
+        json = File.ReadAllText(this.DataPath + "EquipList.txt");
+        this.EquipLists = JsonConvert.DeserializeObject<Dictionary<int, EquipList>>(json);
 
         yield return null;
     }

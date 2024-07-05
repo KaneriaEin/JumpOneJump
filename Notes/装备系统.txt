@@ -1,0 +1,19 @@
+##UICharEquip
+显示ui的四个方法，组成RefreshUI：
+清空装备列表；
+初始化装备列表；
+清空装备中的道具；
+初始化装备中的道具；
+
+##UIEquipItem
+类似其他Item，含有SetSelf方法，利用 IPointerClickHandler 负责管理 道具的选中与否，穿脱与否；
+
+##EquipManager
+存储角色身上的装备情况，7个部位，每个一件装备（没装备就是null）
+提供 穿/脱 方法；穿/脱后，调用 OnEquipChanged回调，用于更新UI;
+
+##Item 里增加EquipDefine，一般用于获取对应装备的槽位号(胸，肩，腿)
+
+
+注意点：
+UIEquipList 装备列表，利用IPointerClickHandler技术，记录点击Item发生的操作，一次点击选中，两次点击负责装备或脱下；

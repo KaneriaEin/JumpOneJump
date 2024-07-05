@@ -223,24 +223,24 @@ public class Player : MonoBehaviour
             case BuffType.DoubleHigher:
                 this.leftFootFx.SetActive(true);
                 this.rightFootFx.SetActive(true);
-                this.buff_TwoJumpHigh = 10;
+                this.buff_TwoJumpHigh = 20;
                 this.jmpFactor = Mathf.Sqrt(2);
                 break;
             case BuffType.ForthDamage:
                 this.backFireFX.SetActive(true);
-                this.buff_FourDamage = 6;
+                this.buff_FourDamage = 15;
                 this.dmgFactor = 4;
                 break;
             case BuffType.BloodDrinking:
-                this.buff_BloodDrink = 10;
+                this.buff_BloodDrink = 20;
                 this.bldFactor = true;
                 break;
             case BuffType.BigSquare:
-                this.buff_BigSquare = 5;
+                this.buff_BigSquare = 10;
                 this.sqrFactor = true;
                 break;
             case BuffType.AddHp:
-                this.HP += 150;
+                this.HP += 200;
                 break;
             default:
                 break;

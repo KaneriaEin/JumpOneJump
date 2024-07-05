@@ -7,12 +7,14 @@ public class Item
     public int ItemId;
     public int Count;
     public ItemDefine Define;
+    public EquipDefine EquipInfo;
 
     public Item(int id, int count)
     {
         this.ItemId = id;
         this.Count = count;
         DataManager.Instance.Items.TryGetValue(id, out this.Define);
+        DataManager.Instance.Equips.TryGetValue(id, out this.EquipInfo);
     }
 
     public override string ToString()
